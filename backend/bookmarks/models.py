@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 
 
@@ -9,6 +10,11 @@ class Bookmark(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True)
     url = models.URLField(max_length=200)
+    author = models.ForeignKey(
+        get_user_model(),
+        on_delete=models.CASCADE,
+        related_name="bookmarks"
+    )
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
