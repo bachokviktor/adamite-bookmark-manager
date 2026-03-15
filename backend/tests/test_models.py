@@ -25,7 +25,7 @@ class TestUsers:
 
 
 @pytest.mark.django_db
-class TestBookmarks:
+class TestBookmark:
     def test_create_bookmark(self, django_user_model):
         user = django_user_model.objects.create_user(
             username="testuser",
