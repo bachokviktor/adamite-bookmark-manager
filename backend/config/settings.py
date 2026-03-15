@@ -144,6 +144,20 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": "Bookmark manager built with Django and React.",
     "VERSION": "1.0.0",
     "SERVE_INCLUDE_SCHEMA": False,
+    "TAGS": [
+        {
+            "name": "bookmarks",
+            "description": "Everything about the current user's bookmarks"
+        },
+        {
+            "name": "users",
+            "description": "Everything about users"
+        },
+        {
+            "name": "token",
+            "description": "JWT Authentication"
+        },
+    ],
 }
 
 
