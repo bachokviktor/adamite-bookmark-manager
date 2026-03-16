@@ -69,3 +69,6 @@ class BookmarkViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self):
         return Bookmark.objects.filter(author=self.request.user)
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
