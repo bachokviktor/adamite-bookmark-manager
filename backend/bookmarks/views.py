@@ -1,3 +1,4 @@
+from django.utils.translation import gettext_lazy as _
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import (
@@ -10,20 +11,20 @@ from .serializers import BookmarkSerializer
 
 @extend_schema_view(
     list=extend_schema(
-        description="Get a list of bookmarks for the current user.",
-        summary="Get a list of bookmarks for the current user"
+        description=_("Get a list of bookmarks for the current user."),
+        summary=_("Get a list of bookmarks for the current user")
     ),
     create=extend_schema(
-        description="Create a bookmark.",
-        summary="Create a bookmark"
+        description=_("Create a bookmark."),
+        summary=_("Create a bookmark")
     ),
     retrieve=extend_schema(
-        description="Get a specific bookmark.",
-        summary="Get a specific bookmark",
+        description=_("Get a specific bookmark."),
+        summary=_("Get a specific bookmark"),
         parameters=[
             OpenApiParameter(
                 name="id",
-                description="Bookmark ID",
+                description=_("Bookmark ID"),
                 location=OpenApiParameter.PATH,
                 required=True,
                 type=int
@@ -31,12 +32,12 @@ from .serializers import BookmarkSerializer
         ]
     ),
     update=extend_schema(
-        description="Update a specific bookmark.",
-        summary="Update a specific bookmark",
+        description=_("Update a specific bookmark."),
+        summary=_("Update a specific bookmark"),
         parameters=[
             OpenApiParameter(
                 name="id",
-                description="Bookmark ID",
+                description=_("Bookmark ID"),
                 location=OpenApiParameter.PATH,
                 required=True,
                 type=int
@@ -47,12 +48,12 @@ from .serializers import BookmarkSerializer
         exclude=True
     ),
     destroy=extend_schema(
-        description="Delete a specific bookmark.",
-        summary="Delete a specific bookmark",
+        description=_("Delete a specific bookmark."),
+        summary=_("Delete a specific bookmark"),
         parameters=[
             OpenApiParameter(
                 name="id",
-                description="Bookmark ID",
+                description=_("Bookmark ID"),
                 location=OpenApiParameter.PATH,
                 required=True,
                 type=int

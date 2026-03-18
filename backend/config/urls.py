@@ -46,8 +46,9 @@ urlpatterns = [
         name="schema"
     ),
     path(
-        "api/schema/swagger-ui/",
+        "api/swagger-ui/",
         SpectacularSwaggerView.as_view(url_name="schema"),
         name="swagger-ui"
     ),
+    path("api/rosetta/", include("rosetta.urls")),
 ]

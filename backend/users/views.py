@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.utils.translation import gettext_lazy as _
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from drf_spectacular.utils import extend_schema, extend_schema_view
@@ -9,8 +10,8 @@ from .serializers import CreateUserSerializer, UserSerializer
 # Create your views here.
 @extend_schema_view(
     post=extend_schema(
-        description="Create a new user.",
-        summary="Create a new user"
+        description=_("Create a new user."),
+        summary=_("Create a new user")
     )
 )
 class UserCreateView(generics.CreateAPIView):
@@ -23,19 +24,19 @@ class UserCreateView(generics.CreateAPIView):
 
 @extend_schema_view(
     get=extend_schema(
-        description="Get user info.",
-        summary="Get user info"
+        description=_("Get user info."),
+        summary=_("Get user info")
     ),
     put=extend_schema(
-        description="Update a user.",
-        summary="Update a user"
+        description=_("Update a user."),
+        summary=_("Update a user")
     ),
     patch=extend_schema(
         exclude=True
     ),
     delete=extend_schema(
-        description="Delete a user.",
-        summary="Delete a user"
+        description=_("Delete a user."),
+        summary=_("Delete a user")
     )
 )
 class UserDetailView(generics.RetrieveUpdateDestroyAPIView):
