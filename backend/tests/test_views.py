@@ -154,7 +154,7 @@ class TestBookmarkViews:
         api_client.force_authenticate(user=None)
 
         assert response.status_code == status.HTTP_200_OK
-        assert len(response.data) == 2
+        assert len(response.data["results"]) == 2
 
     def test_create_bookmark(self, django_user_model, api_client):
         user = django_user_model.objects.create_user(
