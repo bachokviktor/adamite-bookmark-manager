@@ -1,0 +1,176 @@
+:root {
+    --bg-dark: hsl(0, 0%, 0%);
+    --bg-light: hsl(0, 0%, 5%);
+    --text-light: hsl(0, 0%, 90%);
+    --text-dark: hsl(240, 5%, 70%);
+    --action-neutral: hsl(0, 0%, 10%);
+    --action-link: hsl(203, 100%, 78%);
+    --action-danger: hsl(345, 100%, 49%);
+    --action-success: hsl(137, 41%, 31%);
+    --action-warning: hsl(39, 83%, 52%);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+}
+
+h2 {
+    font-size: 3rem;
+    color: var(--text-light);
+}
+
+p {
+    font-size: 1.2rem;
+    color: var(--text-dark);
+}
+
+.hyperlink {
+    text-decoration: none;
+    margin: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    color: var(--action-link);
+    transition: color 0.5s;
+}
+
+.hyperlink:hover {
+    color:  var(--text-light);
+}
+
+.b-neutral {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    background-color: var(--action-neutral);
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.b-danger {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    background-color: var(--action-danger);
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.b-success {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    background-color: var(--action-success);
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.b-warning {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    background-color: var(--action-warning);
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.navbar {
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 25px;
+}
+
+.nav-list {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style-type: none;
+}
+
+.nav-element {
+    margin: 0 15px;
+}
+
+.nav-element a {
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: color 0.5s;
+}
+
+.nav-element a:hover {
+    color: var(--text-light);
+}
+
+.nav-element a.active {
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.not-found-container {
+    padding: 10%;
+    font-size: 1.5rem;
+}
+
+.not-found-container h2 {
+    font-size: 4rem;
+    margin: 10px 0;
+}
+
+.not-found-container a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--action-link);
+    transition: color 0.5s;
+}
+
+.not-found-container a:hover {
+    color:  var(--text-light);
+}
+
+.home-container {
+    padding: 25px;
+}
+
+.bookmark-container {
+    padding: 25px;
+}
+
+.bookmark-card {
+    display: inline-block;
+    background-color: var(--bg-light);
+    font-size: 1.15rem;
+    width: 100%;
+    max-width: 400px;
+    margin: 25px;
+    padding: 20px 50px;
+    border-radius: 25px;
+}
+
+.bookmark-card p {
+    color: var(--text-dark);
+}
+
+.bookmark-card a {
+    text-decoration: none;
+    cursor: pointer;
+    color: var(--action-link);
+    transition: color 0.5s;
+}
+
+.bookmark-container a:hover {
+    color:  var(--text-light);
+}

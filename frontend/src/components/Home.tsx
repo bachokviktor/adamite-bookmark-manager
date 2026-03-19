@@ -1,7 +1,13 @@
 function Home() {
   return (
-    <div>
-      <h2>This is a home page</h2>
+    <div className="home-container">
+      <h2>Heading</h2>
+      <p>some text</p>
+      <a className="hyperlink" href="#">some link</a>
+      <button className="b-neutral">Neutral</button>
+      <button className="b-danger">Danger</button>
+      <button className="b-success">Success</button>
+      <button className="b-warning">Warning</button>
     </div>
   )
 }
