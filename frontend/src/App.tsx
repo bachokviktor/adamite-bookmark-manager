@@ -1,5 +1,6 @@
 import {BrowserRouter, Routes, Route} from "react-router"
 import Layout from "./components/Layout"
+import LoginRequired from "./components/LoginRequired"
 import Home from "./components/Home"
 import Profile from "./components/Profile"
 import Login from "./components/Login"
@@ -17,7 +18,7 @@ function App() {
 	  <Route path="login" element={<Login />} />
 	  <Route path="register" element={<Register />} />
           <Route path="profile" element={<Profile />} />
-	  <Route path="bookmarks">
+	  <Route path="bookmarks" element={<LoginRequired />}>
 	    <Route index element={<Bookmarks />} />
 	    <Route path=":bookmarkId" element={<Bookmark />} />
 	  </Route>

@@ -28,7 +28,7 @@ p {
     color: var(--text-dark);
 }
 
-.hyperlink {
+a {
     text-decoration: none;
     margin: 10px;
     font-size: 1.2rem;
@@ -83,6 +83,10 @@ p {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.container {
+    padding: 25px;
 }
 
 .navbar {
@@ -143,6 +147,27 @@ p {
 
 .home-container {
     padding: 25px;
+}
+
+.auth-container {
+    background-color: var(--bg-light);
+    max-width: 600px;
+    width: 100%;
+    margin: 25px;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.auth-container label {
+    font-size: 1.25rem;
+}
+
+.auth-container input {
+    font-size: 1.25rem;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-bottom: 25px;
 }
 
 .bookmark-container {
