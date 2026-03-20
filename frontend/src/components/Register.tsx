@@ -1,14 +1,33 @@
-import {useState} from "react"
-import {Link} from "react-router"
+import React, {useState} from "react"
+import {Link, useNavigate} from "react-router"
+import api from "../api"
 
 function Register() {
+  const navigate = useNavigate()
+
   const [username, setUsername] = useState<string>("")
   const [password, setPassword] = useState<string>("")
+  const [errors, setErrors] = useState<string|null>(null)
+
+  const handleRegister = async (e: React.SubmitEvent<HTMLFormElement>) => {
+    e.preventDefault()
+
+    try {
+      await api.post(
+	"api/users/",
+	{username: username, password: password}
+      )
+
+      navigate("/login")
+    } catch (error: any) {
+      setErrors(error.message)
+    }
+  }
 
   return (
     <div className="auth-container">
       <h2>Register</h2>
-      <form action="#" method="post">
+      <form action="#" method="post" onSubmit={handleRegister}>
         <label htmlFor="registerUsername">Username</label><br/>
         <input
 	  id="registerUsername"
@@ -32,6 +51,8 @@ function Register() {
 	    setPassword(e.target.value))
 	  } />
 	<br/>
+
+	{errors && <p>{errors}</p>}
 
 	<button className="b-success">Register</button>
 

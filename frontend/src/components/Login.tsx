@@ -1,8 +1,10 @@
 import React, {useState} from "react"
-import {Link} from "react-router"
+import {Link, useNavigate} from "react-router"
 import api from "../api"
 
 function Login() {
+  const navigate = useNavigate()
+
   const [username, setUsername] = useState<string>("")
   const [password, setPassword] = useState<string>("")
   const [errors, setErrors] = useState<string | null>(null)
@@ -20,6 +22,8 @@ function Login() {
 
       localStorage.setItem("access-token", response.data.access)
       localStorage.setItem("refresh-token", response.data.refresh)
+
+      navigate("/bookmarks")
     } catch (error: any) {
       setErrors(error.message)
     }
