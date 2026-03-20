@@ -1,3 +1,6 @@
+import { useEffect, useState } from "react";
+import api  from "../api"
+
 interface BookmarkInterface {
   name: string;
   url: string;
@@ -5,28 +8,26 @@ interface BookmarkInterface {
 }
 
 function Bookmarks() {
-  const bookmarks: BookmarkInterface[] = [
-    {
-      name: "Bookmark 1",
-      url: "https://bookmark1/",
-      description: "Some test bookmark"
-    },
-    {
-      name: "Bookmark 2",
-      url: "https://bookmark2/",
-      description: "Another test bookmark"
-    },
-    {
-      name: "Bookmark 3",
-      url: "https://bookmark3/",
-      description: "Test bookmark 3"
-    },
-    {
-      name: "Bookmark 4",
-      url: "https://bookmark4/",
-      description: "Test bookmark 4"
+  const [bookmarks, setBookmarks] = useState<BookmarkInterface[]>([])
+  const [errors, setErrors] = useState<string|null>(null)
+
+  useEffect(() => {
+    fetchBookmarks()
+  }, [])
+
+  const fetchBookmarks = async () => {
+    try {
+      const response = await api.get("api/bookmarks/")
+
+      setBookmarks(response.data.results)
+    } catch (error: any) {
+      setErrors(error.message)
     }
-  ]
+  }
+
+  if (errors) {
+    return <p>{errors}</p>
+  }
 
   return (
     <div className="bookmark-container">
