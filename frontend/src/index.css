@@ -3,11 +3,15 @@
     --bg-light: hsl(0, 0%, 5%);
     --text-light: hsl(0, 0%, 90%);
     --text-dark: hsl(240, 5%, 70%);
-    --action-neutral: hsl(0, 0%, 10%);
     --action-link: hsl(203, 100%, 78%);
-    --action-danger: hsl(345, 100%, 49%);
+    --action-neutral: hsl(0, 0%, 10%);
+    --action-danger: hsl(345, 100%, 41%);
     --action-success: hsl(137, 41%, 31%);
     --action-warning: hsl(39, 83%, 52%);
+    --action-neutral-disabled: hsl(0, 0%, 40%);
+    --action-danger-disabled: hsl(345, 100%, 20%);
+    --action-success-disabled: hsl(137, 41%, 20%);
+    --action-warning-disabled: hsl(39, 83%, 25%);
 }
 
 body {
@@ -37,8 +41,12 @@ a {
     transition: color 0.5s;
 }
 
-.hyperlink:hover {
-    color:  var(--text-light);
+a:hover {
+    color: var(--text-light);
+}
+
+.msg-danger {
+    color: var(--action-danger);
 }
 
 .b-neutral {
@@ -52,6 +60,12 @@ a {
     cursor: pointer;
 }
 
+.b-neutral:disabled {
+    color: var(--text-dark);
+    background-color: var(--action-neutral-disabled);
+    cursor: not-allowed;
+}
+
 .b-danger {
     font-size: 1.2rem;
     color: var(--text-light);
@@ -61,6 +75,12 @@ a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.b-danger:disabled {
+    color: var(--text-dark);
+    background-color: var(--action-danger-disabled);
+    cursor: not-allowed;
 }
 
 .b-success {
@@ -74,6 +94,12 @@ a {
     cursor: pointer;
 }
 
+.b-success:disabled {
+    color: var(--text-dark);
+    background-color: var(--action-success-disabled);
+    cursor: not-allowed;
+}
+
 .b-warning {
     font-size: 1.2rem;
     color: var(--text-light);
@@ -83,6 +109,12 @@ a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+}
+
+.b-warning:disabled {
+    color: var(--text-dark);
+    background-color: var(--action-warning-disabled);
+    cursor: not-allowed;
 }
 
 .container {
@@ -149,11 +181,16 @@ a {
     padding: 25px;
 }
 
+.auth-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .auth-container {
     background-color: var(--bg-light);
     max-width: 600px;
     width: 100%;
-    margin: 25px;
+    margin-top: 50px;
     padding: 40px;
     border-radius: 30px;
     text-align: center;
