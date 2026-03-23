@@ -24,26 +24,17 @@ function AuthProvider({children}: PropsInterface) {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
 
   useEffect(() => {
-    const refreshToken = localStorage.getItem("refresh-token")
+    const token = localStorage.getItem("access-token")
 
-    if (refreshToken) {
-      refreshAccessToken(refreshToken)
+    if (token) {
+      setToken(token)
+      setIsAuthenticated(true)
     }
   }, [])
 
-  const refreshAccessToken = async (refresh: string) => {
-    try {
-      const response = await api.post("token/refresh/", {refresh: refresh})
-      setToken(response.data.access)
-      setIsAuthenticated(true)
-    } catch(error) {
-      console.log(error)
-      logout()
-    }
-  }
-
   const login = ({access, refresh}: LoginInterface) => {
     localStorage.setItem("refresh-token", refresh)
+    localStorage.setItem("access-token", access)
     setToken(access)
     setIsAuthenticated(true)
   }
