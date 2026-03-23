@@ -1,7 +1,14 @@
+import {BrowserRouter, Routes, Route} from "react-router"
+import Home from "./components/Home"
+
 function App() {
   return (
     <>
-      <h2>Empty page</h2>
+      <BrowserRouter>
+	<Routes>
+	  <Route path="/" element={<Home />} />
+	</Routes>
+      </BrowserRouter>
     </>
   )
 }
