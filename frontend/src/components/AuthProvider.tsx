@@ -1,4 +1,5 @@
-import {createContext, useContext, useState} from "react"
+import {createContext, useContext, useEffect, useState} from "react"
+import api from "../api"
 
 interface AuthContextInterface {
   token: string;
@@ -21,6 +22,25 @@ export const AuthContext = createContext<AuthContextInterface>({token: "", isAut
 function AuthProvider({children}: PropsInterface) {
   const [token, setToken] = useState<string>("")
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false)
+
+  useEffect(() => {
+    const refreshToken = localStorage.getItem("refresh-token")
+
+    if (refreshToken) {
+      refreshAccessToken(refreshToken)
+    }
+  }, [])
+
+  const refreshAccessToken = async (refresh: string) => {
+    try {
+      const response = await api.post("token/refresh/", {refresh: refresh})
+      setToken(response.data.access)
+      setIsAuthenticated(true)
+    } catch(error) {
+      console.log(error)
+      logout()
+    }
+  }
 
   const login = ({access, refresh}: LoginInterface) => {
     localStorage.setItem("refresh-token", refresh)
