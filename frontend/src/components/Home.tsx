@@ -1,5 +1,9 @@
+import {useAuth} from "./AuthProvider"
+
 function Home() {
-  return <h2>This is a home page</h2>
+  const {isAuthenticated} = useAuth()
+
+  return (isAuthenticated ? <h2>Wlecome to the website!</h2> : <h2>You are not authenticated</h2>)
 }
 
 export default Home

@@ -1,23 +1,15 @@
 import React, { useEffect, useState } from "react"
 import {useNavigate, Link} from "react-router"
+import {useAuth} from "./AuthProvider"
 import api from "../api"
 
 function Login() {
   const navigate = useNavigate()
+  const {login} = useAuth()
 
   const [username, setUsername] = useState<string>("")
-  const [usernameValid, setUsernameValid] = useState<boolean>(false)
   const [password, setPassword] = useState<string>("")
-  const [passwordValid, setPasswordValid] = useState<boolean>(false)
   const [errorMessage, setErrorMessage] = useState<string>("")
-
-  useEffect(() => {
-    setUsernameValid(username.trim().length >= 4)
-  }, [username])
-
-  useEffect(() => {
-    setPasswordValid(password.trim().length >= 6)
-  }, [password])
 
   useEffect(() => {
     setErrorMessage("")
@@ -32,7 +24,7 @@ function Login() {
 	{username: username, password: password}
       )
 
-      console.log(response.data)
+      login(response.data)
       navigate("/")
     } catch (error) {
       setErrorMessage("Something went wrong.")
@@ -44,7 +36,7 @@ function Login() {
       <div className="form-container">
         <h2>Login</h2>
         <form onSubmit={handleLogin}>
-          <label htmlFor="usernameInput">Username {!usernameValid && (username.trim().length > 0) ? <span className="error-message">Invalid</span> : ""}</label><br/>
+          <label htmlFor="usernameInput">Username</label><br/>
           <input
 	    name="usernameInput"
 	    id="usernameInput"
@@ -54,7 +46,7 @@ function Login() {
 	    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {setUsername(e.target.value)}}
 	    value={username} /><br/>
 
-          <label htmlFor="passwordInput">Password {!passwordValid && (password.trim().length > 0) ? <span className="error-message">Invalid</span> : ""}</label><br/>
+          <label htmlFor="passwordInput">Password</label><br/>
           <input
 	    name="passwordInput"
 	    id="passwordInput"
@@ -69,7 +61,7 @@ function Login() {
           <button
 	    className="b-success"
 	    type="submit"
-	    disabled={(usernameValid && passwordValid) ? false : true}>Login</button>
+	    disabled={(username.trim() && password.trim()) ? false : true}>Login</button>
         </form>
 
 	<p>Don't have an account?<br/><Link to="/register">Register</Link></p>
