@@ -1,0 +1,84 @@
+:root {
+    --color-danger: hsl(345, 100%, 49%);
+    --color-success: hsl(140, 52%, 55%);
+    --color-link: hsl(210, 100%, 50%);
+    --color-disabled: hsl(240, 10%, 40%);
+    --text-primary: hsl(0, 0%, 10%);
+    --text-secondary: hsl(240, 3%, 20%);
+    --background: hsl(0, 0%, 90%);
+    --foreground: hsl(0, 0%, 100%);
+}
+
+body {
+    font-family: Arial;
+    background-color: var(--background);
+    padding: 0;
+    margin: 0;
+}
+
+h2 {
+    font-size: 2.2rem;
+    color: var(--text-primary);
+}
+
+p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+a {
+    font-size: 1.25rem;
+    color: var(--color-link);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+label {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+}
+
+input {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    background-color: var(--background);
+    margin-bottom: 20px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+}
+
+.error-message {
+    color: var(--color-danger);
+}
+
+.b-success {
+    font-size: 1.25rem;
+    color: var(--foreground);
+    background-color: var(--color-success);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.b-success:disabled {
+    color: var(--background);
+    background-color: var(--color-disabled);
+    cursor: not-allowed;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.form-container {
+    background-color: var(--foreground);
+    margin-top: 50px;
+    padding: 40px;
+    text-align: center;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
